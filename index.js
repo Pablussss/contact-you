@@ -2,19 +2,24 @@ const express = require('express');
 const app = express();
 const port = 3000;
 const http = require('http');
-const server = http.createServer(app)
-const { Server } = require("socket.io")
-const io = new Server(server)
+const server = http.createServer(app);
+const { Server } = require("socket.io");
+const io = new Server(server);
 
-app.get('/', (req, res) => {
+// Estatico
+app.use(express.static('public'));
 
-    res.status(200).sendFile(__dirname + '/public/index.html');
-})
-
+// Chat
 io.on('connection', (socket) => {
-    console.log('un usuario se ha conectado')
-})
+    socket.on('chat message', (msg) => {
+      io.emit('chat message', msg);
+    });
+  });
+  
+// Retransmitir mensajes
+io.emit('some event', { someProperty: 'some value', otherProperty: 'other value' }); // This will emit the event to all connected sockets
 
-app.listen(port, () => {
+// Server start
+server.listen(port, () => {
     console.log(`Server corriendo en el puerto: *${port}*`)
 })
