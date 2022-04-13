@@ -7,14 +7,17 @@ const { Server } = require("socket.io");
 const io = new Server(server);
 
 // Estatico
-app.get('/', (req, res) => {
-    res.sendFile(__dirname + '/public/index.html');
-});
+app.use(express.static('public'));
 
 // Chat
 io.on('connection', (socket) => {
-    console.log('a user connected');
-});
+    socket.on('chat message', (msg) => {
+      io.emit('chat message', msg);
+    });
+  });
+  
+// Retransmitir mensajes
+io.emit('some event', { someProperty: 'some value', otherProperty: 'other value' }); // This will emit the event to all connected sockets
 
 // Server start
 server.listen(port, () => {
