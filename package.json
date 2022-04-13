@@ -1,0 +1,25 @@
+{
+  "name": "contact-you",
+  "version": "1.0.0",
+  "description": "Aplicacion nodejs+socketio+js nativo para practicar habilidades",
+  "main": "Sergio.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Pablussss/contact-you.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Pablussss/contact-you/issues"
+  },
+  "homepage": "https://github.com/Pablussss/contact-you#readme",
+  "dependencies": {
+    "@socket.io/cluster-adapter": "^0.1.0",
+    "express": "^4.17.3"
+  }
+}
