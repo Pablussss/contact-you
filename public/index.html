@@ -16,35 +16,66 @@
 </head>
 
 <body>
-    <!-- Nav && Login -->
+    <!-- NAV -->
     <nav class="navbar navbar-dark bg-dark">
         <a class="navbar-brand mx-auto" href="/">
           ContactYou
         </a>
     </nav>
-    <div class="container" id="contentWrap">
-      <div class="col-md-6 mt-4">
-        <div class="card">
-          <div class="card-header">
-            <g4>Chat</g4>
-          </div>
-
-          <div id="chat" class="card-body"></div>
-          <form id="message-form" class="card-footer">
-            <div class="input-group">
-              <input type="text" id="message" class="form-control">
-              <div class="input-group-append">
-                <input type="submit" class="btn btn-warning">
-              </div>
-            </div>  
-          </form>
-        
-        </div>
+    
+    <!-- LOGIN -->
+    <div class="card col-md-4 mt-5 mx-auto" id="loginWrap">
+      <div class="card-header">
+        <h3>Username:</h3>
+      </div>
+      <p id="loginError"></p>
+      <div class="card-body">
+        <form id="loginForm">
+          <input type="text" id="username" class="form-control" placeholder="Enter your username">
+          <button type="submit" class="btn btn-primary mt-2">
+            <i class="fas fa-location-arrow"></i> Enviar
+          </button>
+        </form>
       </div>
     </div>
 
     <!-- CHAT CONTAINER -->
-    
+    <div class="container" id="contentWrap">
+      <div class="row mt-2">
+        <div class="col-md-6 offset-md-1">
+          <div class="card">
+            <div class="card-header">
+              <g4>Chat</g4>
+            </div>
+
+            <div id="chat" class="card-body"></div>
+              <form id="message-form" class="card-footer">
+                <div class="input-group">
+                  <input type="text" id="message" class="form-control">
+                  <div class="input-group-append">
+                    <button type="submit" class="btn btn-primary">
+                      <i class="fas fa-location-arrow"></i> Enviar
+                    </button>
+                  </div>
+                </div>  
+              </form>
+
+            </div>
+        </div>
+        <div class="col-md-3">
+          <div class="card">
+            <div class="card-header">
+              <h6>Online Users</h6>
+            </div>
+          <div class="card-body">
+            <div id="usersConnected"></div>
+          </div>
+        </div>
+
+
+      </div>   
+    </div>
+
             <!-- CARD HEADER-->
             
   
