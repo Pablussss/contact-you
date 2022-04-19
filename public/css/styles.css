@@ -23,9 +23,10 @@ body {
 
 #loginWrap {
     background-color: rgb(14, 62, 94);
+
 }
 #contentWrap {
-    display:none; 
+    display:none;
     
     height: 200px;
 }
@@ -43,12 +44,12 @@ body {
     color:rgb(221, 11, 11);
     font-style: cursive;
 }
-.card-body {
-    width: auto;
-    height: 500px;
-}
 #chat {
     width: auto;
     height: 500px;
     overflow-y: auto;
+}
+#userList {
+    width: auto;
+    height: 500px;
 }
