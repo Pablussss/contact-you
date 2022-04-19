@@ -39,7 +39,7 @@
       </div>
     </div>
 
-    <!-- CHAT CONTAINER -->
+    <!-- CONTAINER -->
     <div class="container" id="contentWrap">
       <div class="row mt-2">
         <div class="col-md-6 offset-md-1">
@@ -47,45 +47,58 @@
             <div class="card-header">
               <g4>Chat</g4>
             </div>
-
+            <!-- CHAT CONTAINER -->
             <div id="chat" class="card-body"></div>
               <form id="message-form" class="card-footer">
-                <div class="input-group">
-                  <input type="text" id="message" class="form-control">
-                  <div class="input-group-append">
-                    <button type="submit" class="btn btn-primary">
+                <div class="input-group mb-3 redondeado">
+                  <span class="input-group-text" id="userLogin">Usuario</span>
+                  <input type="text" class="form-control" placeholder="Escribe tu mensaje" aria-label="Mensaje">
+                    <button type="submit" class="btn btn-primary ms-4">
                       <i class="fas fa-location-arrow"></i> Enviar
                     </button>
-                  </div>
-                </div>  
-              </form>
+                </div>
 
-            </div>
+              </form>
+              </div>
         </div>
+
+        
+
+        <!-- <div class="input-group">
+          <input type="text" id="message" class="form-control">
+          <div class="input-group-append">
+            <button type="submit" class="btn btn-primary">
+              <i class="fas fa-location-arrow"></i> Enviar
+            </button> -->
+
+        <!-- USERS SECTION-->
         <div class="col-md-3">
           <div class="card">
+            <!-- CARD HEADER-->
             <div class="card-header">
               <h6>Online Users</h6>
             </div>
+          <!-- CARD BODY-->
           <div class="card-body" id="userList">
             <div id="usersConnected"></div>
           </div>
         </div>
+          <!-- CARD FOOTER -->
 
 
       </div>   
     </div>
 
-            <!-- CARD HEADER-->
+            
             
   
-            <!-- CARD BODY-->
+            
             
   
-            <!-- CARD FOOTER -->
+            
             
   
-        <!-- USERS SECTION-->
+        
         
       
 </body>
