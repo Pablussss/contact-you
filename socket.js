@@ -1,6 +1,6 @@
 module.exports = function (io) {
 
-    let usernames = [' '];
+    let usernames = [];
 
     io.on('connection', socket => {
         
