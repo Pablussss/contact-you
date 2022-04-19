@@ -39,19 +39,30 @@ $(function (){
         }
         $users.html(html)
     })
-        // desconexion usuario
 
     // Eventos mensajes
         // Enviar mensaje desde cliente
     $messageForm.submit( e => {
         e.preventDefault()
-        socket.emit('send message', $messageBox.val())
+        socket.emit('send message', $messageBox.val(), data => {
+            $chat.append(`<p class="error">${data}</p>`)
+        })
         $messageBox.val('')
     })
 
         // Escuchar mensaje desde Cliente
     socket.on('new message', data => {
         $chat.append(`<b>` + data.user + `</b>` + ": " + data.msg + '<br/>')
+        
+    })
+        // Escuchar mensaje privado
+    socket.on('whisper', data => {
+        $chat.append(`<p class="whisper"><b>` + data.user + `</b>` + ": " + data.msg + '<br/></p> ')
+    })
+
+        // Mensajes predefinidos
+    socket.on('admin message', data => {
+        $chat.append(`<p class="admin-message"><b>` + data.user + `</b>` + ": " + data.msg + '<br/></p> ')
     })
 
     
