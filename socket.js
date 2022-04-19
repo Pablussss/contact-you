@@ -46,7 +46,7 @@ module.exports = function (io) {
 
         // conexion nuevo usuario 
         socket.on('new user', (data, res) => {
-            console.log(data + " se ha conectado")
+            
             if(data in usernames) {
                 res(false)
             } else {
@@ -54,12 +54,22 @@ module.exports = function (io) {
                 socket.username = data;
                 usernames[socket.username] = socket;
                 updateUsers()
+
+                console.log(data + " se ha conectado")
+                io.emit('admin message', {
+                    msg: "el usuario " + data + " se ha conectado.",
+                    user: "Admin"
+                })
             }
         })
         // desconexion usuario
         socket.on('disconnect', data => {
             if (!socket.username) return
             console.log(socket.username + " se ha desconectado")
+            io.emit('admin message', {
+                msg: "el usuario " + socket.username + " se ha desconectado.",
+                user: "Admin"
+            })
 
             delete usernames[socket.username]
             updateUsers()
