@@ -46,7 +46,6 @@ module.exports = function (io) {
 
         // conexion nuevo usuario 
         socket.on('new user', (data, res) => {
-            
             if(data in usernames) {
                 res(false)
             } else {
