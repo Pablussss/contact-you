@@ -29,3 +29,17 @@ body {
     
     height: 200px;
 }
+
+.error {
+    color: red;
+}
+
+.whisper {
+    color: grey;
+    font-style: italic;
+}
+
+.admin-message {
+    color:rgb(221, 11, 11);
+    font-style: cursive;
+}
