@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 const { Schema } = mongoose;
 
-new Schema({
+new MessageSchema({
     user: String,
     msg: String,
     createdAt: {
@@ -9,3 +9,5 @@ new Schema({
         default: Date.now()
     }
 })
+
+module.exports = mongoose.model('Message', MessageSchema);
