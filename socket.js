@@ -62,7 +62,7 @@ module.exports = function (io) {
                 usernames[socket.username] = socket;
                 updateUsers()
                 pastMsg()
-
+                
                 console.log(data + " se ha conectado")
                 io.emit('admin message', {
                     msg: "el usuario " + data + " se ha conectado.",
