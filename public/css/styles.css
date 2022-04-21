@@ -1,12 +1,12 @@
 body {
-    background-color: rgb(59, 103, 145);
+    background-color: rgb(#136f6a);
 }
 .card-header{
-    background-color: rgb(14, 62, 94);
+    background-color: rgb(#334b49);
     color: white;
 }
 .card-footer {
-    background-color: rgb(14, 62, 94);
+    background-color: rgb(#334b49);
 }
 
 #form { background: rgba(221, 11, 11, 0.15); padding: 0.25rem; position: fixed; bottom: 0; left: 0; right: 0; display: flex; height: 3rem; box-sizing: border-box; backdrop-filter: blur(10px); }
