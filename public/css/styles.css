@@ -51,9 +51,9 @@ body {
     height: 500px;
 }
 
-.redondeado{
+/* .redondeado{
     border-radius: 15px;
-}
+} */
 .btn{ /*Se cambia el color a todos los botones*/
     background-color: #69c899;
     border-color: #69c899;
