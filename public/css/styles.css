@@ -54,3 +54,11 @@ body {
 .redondeado{
     border-radius: 15px;
 }
+.btn{ /*Se cambia el color a todos los botones*/
+    background-color: #69c899;
+    border-color: #69c899;
+}
+.btn:hover, .btn:focus, .btn:active, .btn.active, .open>.dropdown-toggle.btn{ 
+    background-color: #69c899;
+    border-color: #69c899;
+}
