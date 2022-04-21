@@ -38,6 +38,7 @@ $(function (){
             html += `<p><i class="fas fa-user"></i> ${data[i]}</p>`
         }
         $users.html(html)
+        
     })
 
     // Eventos mensajes
@@ -53,7 +54,7 @@ $(function (){
         // Escuchar mensaje desde Cliente
     socket.on('new message', data => {
         $chat.append(`<b>` + data.user + `</b>` + ": " + data.msg + '<br/>')
-        
+        $('#userLogin').html(data.user)
     })
         // Escuchar mensaje privado
     socket.on('whisper', data => {
