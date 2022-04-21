@@ -1,13 +1,17 @@
+const Message = require('./public/models/Messages')
+
 module.exports = function (io) {
 
-    let usernames = {
+    let usernames = {};
 
-    };
-
-    io.on('connection', socket => {
+    io.on('connection', async socket => {
         
+        // recuperar mensajes anteriores
+        let pastMsg = await Message.find({})
+        io.emit('load old msg', pastMsg)
+
         // escuchar mensajes servidor y emitirlos a los clientes
-        socket.on('send message', (data,res) => {
+        socket.on('send message', async (data,res) => {
             "/help"
             "/w user msg msg msg"
             let msg = data.trim();
@@ -18,6 +22,7 @@ module.exports = function (io) {
                     user: "Admin"
                 })
             }
+            // Mensaje privado
             else if(msg.substr(0, 3) === '/w '){
                 msg = msg.substr(3);
                 const index = msg.indexOf(' ');
@@ -36,6 +41,12 @@ module.exports = function (io) {
                     res('¡Error! El comando no es correcto')
                 }
             } else {
+                let newMsg = new Message({
+                    msg: data,
+                    user: socket.username
+                })
+                await newMsg.save()
+
                 io.emit('new message', {
                     msg: data,
                     user: socket.username

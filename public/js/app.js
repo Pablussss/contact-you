@@ -54,7 +54,7 @@ $(function (){
         // Escuchar mensaje desde Cliente
     socket.on('new message', data => {
         $chat.append(`<b>` + data.user + `</b>` + ": " + data.msg + '<br/>')
-        $('#userLogin').html(data.user)
+        
     })
         // Escuchar mensaje privado
     socket.on('whisper', data => {
@@ -66,6 +66,16 @@ $(function (){
         $chat.append(`<p class="admin-message"><b>` + data.user + `</b>` + ": " + data.msg + '<br/></p> ')
     })
 
+        // Cargar mensajes antiguos
+    socket.on('load old msg', msg => {
+        for(let i=0; i< msg.length; i++){
+            displayMsg(msg[i]);
+        }
+    })
+
+function displayMsg (data) {
+    $chat.append(`<p class="whisper"><b>` + data.user + `</b>` + ": " + data.msg + '<br/></p> ')
+}
     
 
 })

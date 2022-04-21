@@ -1,6 +1,6 @@
 {
   "name": "contact-you",
-  "version": "1.0.0",
+  "version": "2.0.0",
   "description": "Aplicacion nodejs+socketio+js nativo para practicar habilidades",
   "main": "Sergio.js",
   "scripts": {
@@ -20,6 +20,7 @@
   "homepage": "https://github.com/Pablussss/contact-you#readme",
   "dependencies": {
     "express": "^4.17.3",
+    "mongoose": "^6.3.0",
     "socket.io": "^4.4.1"
   }
 }
