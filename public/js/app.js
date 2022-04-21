@@ -66,6 +66,16 @@ $(function (){
         $chat.append(`<p class="admin-message"><b>` + data.user + `</b>` + ": " + data.msg + '<br/></p> ')
     })
 
+        // Cargar mensajes antiguos
+    socket.on('load old msg', msg => {
+        for(let i=0; i< msg.length; i++){
+            displayMsg(msg[i]);
+        }
+    })
+
+function displayMsg (data) {
+    $chat.append(`<p class="whisper"><b>` + data.user + `</b>` + ": " + data.msg + '<br/></p> ')
+}
     
 
 })
