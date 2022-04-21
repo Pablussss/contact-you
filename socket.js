@@ -6,10 +6,6 @@ module.exports = function (io) {
 
     io.on('connection', async socket => {
         
-        // recuperar mensajes anteriores
-        let pastMsg = await Message.find({})
-        io.emit('load old msg', pastMsg)
-
         // escuchar mensajes servidor y emitirlos a los clientes
         socket.on('send message', async (data,res) => {
             "/help"
@@ -34,6 +30,7 @@ module.exports = function (io) {
                             msg,
                             user: socket.username
                         })
+                        console.log(usernames[user])
                     } else {
                         res(`¡Error! El usuario ${user} no está conectado`)
                     }
@@ -64,6 +61,7 @@ module.exports = function (io) {
                 socket.username = data;
                 usernames[socket.username] = socket;
                 updateUsers()
+                pastMsg()
 
                 console.log(data + " se ha conectado")
                 io.emit('admin message', {
@@ -84,6 +82,17 @@ module.exports = function (io) {
             delete usernames[socket.username]
             updateUsers()
         })
+
+        // Recuperar mensajes pasados
+        async function pastMsg () {
+            let room = "welcomeRoom"
+            // recuperar mensajes anteriores
+            let lastMsg = await Message.find({})
+            //io.emit('load old msg', lastMsg)
+            socket.join(room)
+            io.to(room).emit('load old msg', lastMsg)
+            socket.leave(room)
+        }
 
         // Actualizar lista usuarios
         function updateUsers () {
