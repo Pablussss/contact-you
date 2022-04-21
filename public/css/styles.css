@@ -1,12 +1,12 @@
 body {
-    background-color: rgb(59, 103, 145);
+    background-color: rgb(19,111,106);
 }
 .card-header{
-    background-color: rgb(14, 62, 94);
+    background-color: rgb(51,75,73);
     color: white;
 }
 .card-footer {
-    background-color: rgb(14, 62, 94);
+    background-color: rgb(51,75,73);
 }
 
 #form { background: rgba(221, 11, 11, 0.15); padding: 0.25rem; position: fixed; bottom: 0; left: 0; right: 0; display: flex; height: 3rem; box-sizing: border-box; backdrop-filter: blur(10px); }
@@ -19,7 +19,7 @@ body {
 #messages > li:nth-child(odd) { background: #efefef; }
 
 #loginWrap {
-    background-color: rgb(14, 62, 94);
+    background-color: rgb(51,75,73);
 
 }
 #contentWrap {
